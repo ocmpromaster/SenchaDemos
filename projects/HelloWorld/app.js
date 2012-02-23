@@ -36,7 +36,8 @@ Ext.application({
     launch: function() {
         
         //  SETUP CLASS PATHS -
-        //      Now "com.blah.foo" anywhere finds files at "app.com.blah.foo" etc...
+        //      Now any code that references "com.blah.foo" will look 
+        //      at the physical location "src.com.blah.foo"
         Ext.Loader.setConfig({
                 enabled	: true,
                 paths	: {

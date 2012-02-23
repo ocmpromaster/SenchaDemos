@@ -40,7 +40,7 @@ Ext.application({
         Ext.Loader.setConfig({
                 enabled	: true,
                 paths	: {
-                    com	: "app/com"
+                    com	: "src/com"
                 }
         });
         
@@ -48,6 +48,7 @@ Ext.application({
         this.testSomeUI();
         
         this.testSomeObjects();
+        
     },
     
     // --------------------------------------

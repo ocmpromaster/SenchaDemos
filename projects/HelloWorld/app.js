@@ -70,6 +70,9 @@ Ext.application({
     
     },
     
+    // --------------------------------------
+    // Methods
+    // --------------------------------------
     testSomeObjects: function() {
         
         // SUPER CLASS

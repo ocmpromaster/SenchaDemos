@@ -36,6 +36,7 @@ Ext.define('com.rmc.projects.extjsmvctemplate.controller.MainController', {
     views : [
         'com.rmc.projects.extjsmvctemplate.view.MainView'
     ],
+
     stores: [
         'com.rmc.projects.extjsmvctemplate.store.MessageStore'
     ],
@@ -105,12 +106,11 @@ Ext.define('com.rmc.projects.extjsmvctemplate.controller.MainController', {
         //ENABLE CLEAR BUTTON
         this.clearMessageButton.setDisabled(false);
         
-        //GET DATA FROM STORE
-        var messageStore = this.getStore ("com.rmc.projects.extjsmvctemplate.store.MessageStore");
-        var message_str  = messageStore.data.items[0].raw.message;
+        //GET DATA FROM MODEL, THE STORE "WRAPS" THE MODEL        
+        var messageStore = this.getStore('com.rmc.projects.extjsmvctemplate.store.MessageStore');
                 
         //SET MESSAGE VALUE
-        this.bodyText.setValue (message_str);
+        this.bodyText.setValue (messageStore.getMessage());
     },
     
     

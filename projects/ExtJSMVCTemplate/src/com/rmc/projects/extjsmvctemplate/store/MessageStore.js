@@ -28,10 +28,47 @@ Ext.define('com.rmc.projects.extjsmvctemplate.store.MessageStore', {
     // Properties
     // --------------------------------------
     extend: 'Ext.data.Store',
+    model : 'com.rmc.projects.extjsmvctemplate.model.MessageModel',
     fields: ['message'],
     data: [
         {message: 'Hello World From MessageStore!'}
-    ]
+    ],
+    autoLoad : true,
     
+    messageModel : null,
+    
+    // --------------------------------------
+    // Properties
+    // --------------------------------------
+    loadModel : function () {
+        
+        //NOT SURE IF THERE IS A MORE BUILT-IN WAY TO INSTANTIATE THIS MODEL
+        //BUT THIS SOLUTION WORKS FINE.
+        this.messageModel = new this.model ();
+    },
+    getMessage : function () {
+        
+        
+        //
+        //ATTEMPT #1 - USE A MODEL TO HOLD DATA IN AN ARRAY OR OBJECT
+        //              STATUS: FAILED. CAN'T FIGURE IT OUT 
+        //
+        
+        //IF THE MODEL IS NOT LOADED, LOAD IT
+        //if (!this.messageModel) {
+        //    this.loadModel();
+        //}
+        //console.log (this.messageModel)
+        
+        
+        
+        
+        //
+        //ATTEMPT #2 - JUST GRAB DATA FROM A STORE ARRAY OR OBJECT
+        //              STATUS: WORKS!
+        //
+        console.log (this.data.items[0].data.message)
+        return this.data.items[0].data.message;
+    }
     
 });

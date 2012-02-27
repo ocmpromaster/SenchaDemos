@@ -1,4 +1,3 @@
-<!--
 /**
  * Copyright (C) 2005-2012 by Rivello Multimedia Consulting (RMC).                    
  * code [at] RivelloMultimediaConsulting [dot] com                                                  
@@ -23,57 +22,15 @@
  * OTHER DEALINGS IN THE SOFTWARE.                                      
  */
 //Marks the right margin of code *******************************************************************
--->
-
-// --------------------------------------
-// Classpaths
-//      Now any code that references "com.blah.foo" will look 
-//      at the physical location "src.com.blah.foo"
-// --------------------------------------
-Ext.Loader.setConfig({
-        enabled	: true,
-        paths	: {
-            com	: "src/com"
-        }
-});
-
-
-// --------------------------------------
-// Main Application
-// --------------------------------------
-Ext.application ({
-        
-        // --------------------------------------
-        // Properties
-        // --------------------------------------
-        name: 'ExtJSMVCTemplate',
-        autoCreateViewport : false,
+Ext.define('com.rmc.projects.extjsmvctemplate.model.MessageModel', {
     
-        controllers: [
-                'com.rmc.projects.extjsmvctemplate.controller.MainController'
-        ],
-        
-
-        // --------------------------------------
-        // Properties
-        // --------------------------------------
-        launch: function()
-        {
-                
-                //TRACE
-                console.log ("ExtJSMVCTemplate.launch()");
-                
-                //SHOW DIALOG BOX (OPTIONAL)
-                //Ext.MessageBox.alert('Ext JS MVC Template','Close this MessageBox and click "Load Message" or "Clear Message". That is it!');
-                   
-                
-                // --------------------------------------
-                // What happens next?
-                // --------------------------------------
-                //THE UI AND OTHER IMPORTANT THINGS HAPPEN WITHIN THE FOLLOWING CLASS...
-                //com.rmc.projects.extjsmvctemplate.controller.MainController
-                
-        }
+    // --------------------------------------
+    // Properties
+    // --------------------------------------
+    extend  : 'Ext.data.Model',
+    fields  : ['message'],
+    data    : [
+        {message: 'Hello World From MessageModel!'}
+    ]
+    
 });
-
-

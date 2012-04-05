@@ -48,7 +48,10 @@ Ext.application ({
         // --------------------------------------
         name: 'ExtJSMVCTemplate',
         autoCreateViewport : false,
-    
+
+        //AFTER 'LAUNCH' THE CODE IN THE CONTROLLER IS FIRED
+        //THE UI AND OTHER IMPORTANT THINGS HAPPEN WITHIN THE FOLLOWING CLASS
+        //SIMPLY SETTING THIS PROPERY HERE WIRES-UP AND RUNS THE CONTROLLER
         controllers: [
                 'com.rmc.projects.extjsmvctemplate.controller.MainController'
         ],
@@ -66,12 +69,9 @@ Ext.application ({
                 //SHOW DIALOG BOX (OPTIONAL)
                 //Ext.MessageBox.alert('Ext JS MVC Template','Close this MessageBox and click "Load Message" or "Clear Message". That is it!');
                    
-                
-                // --------------------------------------
-                // What happens next?
-                // --------------------------------------
-                //THE UI AND OTHER IMPORTANT THINGS HAPPEN WITHIN THE FOLLOWING CLASS...
-                //com.rmc.projects.extjsmvctemplate.controller.MainController
+                //NEXT?
+                //See the MainController.js code from above
+
                 
         }
 });

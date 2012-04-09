@@ -22,8 +22,13 @@
  * OTHER DEALINGS IN THE SOFTWARE.                                      
  */
 //Marks the right margin of code *******************************************************************
-Ext.define('com.rmc.projects.helloworld.Beer', {
-    
+Ext.define('com.rmc.projects.helloworld.Beer',
+{
+    // --------------------------------------
+    // Super Class
+    // --------------------------------------    
+    extend: "Ext.util.Observable",
+
     // --------------------------------------
     // Properties
     // --------------------------------------
@@ -33,13 +38,20 @@ Ext.define('com.rmc.projects.helloworld.Beer', {
     // --------------------------------------
     // Constructor
     // --------------------------------------
-    constructor: function(brandName) {
+    constructor: function( config )
+    {
+
+        // EVENTS
+        this.addEvents ({
+            drinked : true
+        });
         
         // SUPER
-        
-        // EVENTS
+        this.initConfig ( config );
+        this.callParent ( arguments );
         
         // VARIABLES
+        brandName = arguments[0]; //first item passed in, we'll consider the brandName
         
         // PROPERTIES
         this.calories = 200;
@@ -56,9 +68,9 @@ Ext.define('com.rmc.projects.helloworld.Beer', {
     // --------------------------------------
     // Methods
     // --------------------------------------
-    drink: function() {
-        
-        return "The beer '"+ this.brandName+"' was drank. Calories : " + this.calories;
+    drink: function() 
+    {
+        this.fireEvent ('drinked', " 'Argument String Message' " );
     }
     
 });

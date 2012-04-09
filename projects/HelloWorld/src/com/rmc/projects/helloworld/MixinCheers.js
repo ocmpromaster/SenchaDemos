@@ -22,7 +22,8 @@
  * OTHER DEALINGS IN THE SOFTWARE.                                      
  */
 //Marks the right margin of code *******************************************************************
-Ext.define('com.rmc.projects.helloworld.MixinCheers', {
+Ext.define('com.rmc.projects.helloworld.MixinCheers',
+{
 
     // --------------------------------------
     // Properties
@@ -35,7 +36,8 @@ Ext.define('com.rmc.projects.helloworld.MixinCheers', {
     // --------------------------------------
     // Methods
     // --------------------------------------
-    cheers: function() {
+    cheers: function()
+    {
         console.log ("Cheers!");
     },
 

@@ -22,41 +22,62 @@
  * OTHER DEALINGS IN THE SOFTWARE.                                      
  */
 //Marks the right margin of code *******************************************************************
-Ext.define('com.rmc.projects.helloworld.LightBeer',
+Ext.define('com.rmc.projects.helloworld.Cocktail',
 {
-
+    
     // --------------------------------------
     // Super Class
     // --------------------------------------
-    extend : "com.rmc.projects.helloworld.Beer",
-    
+    extend: "Ext.util.Observable",
     
     // --------------------------------------
     // Properties
     // --------------------------------------
-    mixins: 
-    {
-        ch: 'com.rmc.projects.helloworld.MixinCheers'
-    },
 
+    //	TEST PUBLIC PROPERTY
+    samplePublicVariable : 'UnknownPublicVariable',
+    
+    //	TEST STATIC PROPERTY
+    statics :  {
+    	TEST_STATIC_PROPERTY : 'TestStaticProperty',
+    },
+    
+    //	TEST AUTO-GENERATED PUBLIC GETTER/SETTER
+    config :  {
+    	countForFun : 20,
+    },
+    
     // --------------------------------------
     // Constructor
     // --------------------------------------
     constructor: function( config )
     {
-
+        
         // SUPER
         this.initConfig ( config );
         this.callParent ( arguments );
         
         // EVENTS
+        this.addEvents ({
+            customEventCalled : true
+        });
         
         // VARIABLES
         
         // PROPERTIES
-        this.calories = 100;
-        
+        samplePublicVariable = arguments[0]; //first item passed in, we'll consider the cocktailName
+ 		
+        //	TEST PRIVATE VARIABLES
+        var samplePrivateVariable = "samplePrivateVariable";
+
         // METHODS
+        
+        //	TEST PRIVATE VARIABLES
+        var samplePrivateMethod = function () {
+        	console.log ("this.samplePrivateMethod() : " + samplePrivateVariable);
+        };
+        samplePrivateMethod(); //cannot be called from outside the class
+        
         
         // RETURN
         return this;
@@ -65,6 +86,10 @@ Ext.define('com.rmc.projects.helloworld.LightBeer',
     // --------------------------------------
     // Methods
     // --------------------------------------
+    customEventCall: function() 
+    {
+        this.fireEvent ('customEventCalled', " 'Argument String Message' " );
+    }
 
     
 });
